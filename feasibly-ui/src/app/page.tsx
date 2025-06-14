@@ -23,16 +23,16 @@ export default function FeasiblyLanding() {
           <span className="ml-2 text-2xl font-bold text-gray-900">Feasibly</span>
         </Link>
         <nav className="ml-auto flex gap-4 sm:gap-6 items-center">
-          <Link href="#features" className="text-sm font-medium hover:text-emerald-600 transition-colors">
+          <Link href="#features" className="text-sm font-medium text-gray-900 hover:text-emerald-600 transition-colors">
             Features
           </Link>
-          <Link href="#how-it-works" className="text-sm font-medium hover:text-emerald-600 transition-colors">
+          <Link href="#how-it-works" className="text-sm font-medium text-gray-900 hover:text-emerald-600 transition-colors">
             How It Works
           </Link>
-          <Link href="#pricing" className="text-sm font-medium hover:text-emerald-600 transition-colors">
+          <Link href="#pricing" className="text-sm font-medium text-gray-900 hover:text-emerald-600 transition-colors">
             Pricing
           </Link>
-          <button className="px-4 py-2 text-sm font-medium border border-gray-300 rounded-md hover:bg-gray-50 transition-colors">
+          <button className="px-4 py-2 text-sm font-medium text-gray-900 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors">
             Sign In
           </button>
         </nav>
@@ -51,7 +51,7 @@ export default function FeasiblyLanding() {
                   <h1 className="text-4xl font-bold text-gray-900 tracking-tight sm:text-5xl xl:text-6xl">
                     Turn Your Business Idea Into a <span className="text-emerald-600">Feasible Reality</span>
                   </h1>
-                  <p className="max-w-[600px] text-gray-600 text-lg md:text-xl">
+                  <p className="max-w-[600px] text-gray-900 text-lg md:text-xl">
                     Get instant feasibility assessments for your startup idea in any German city. Real data, accurate
                     costs, legal requirements - all in one place.
                   </p>
@@ -97,16 +97,16 @@ export default function FeasiblyLanding() {
         </section>
 
         {/* Features Section */}
-        <section id="features" className="w-full py-12 md:py-24 lg:py-32">
+        <section id="features" className="w-full py-12 md:py-24 lg:py-32 bg-white">
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
               <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
                 Core Features
               </span>
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">
                 Everything You Need to Validate Your Startup
               </h2>
-              <p className="max-w-[900px] text-gray-600 text-lg md:text-xl">
+              <p className="max-w-[900px] text-gray-900 text-lg md:text-xl">
                 From feasibility analysis to legal compliance, we provide comprehensive insights based on real German
                 market data.
               </p>
@@ -114,48 +114,48 @@ export default function FeasiblyLanding() {
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
                 <Calculator className="h-10 w-10 text-emerald-600 mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Smart Feasibility Analysis</h3>
-                <p className="text-gray-600">
+                <h3 className="text-xl font-semibold mb-2 text-gray-900">Smart Feasibility Analysis</h3>
+                <p className="text-gray-900">
                   Input your business idea and budget to get instant feasibility decisions based on location-specific
                   data across German cities.
                 </p>
               </div>
               <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
                 <MapPin className="h-10 w-10 text-emerald-600 mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Detailed Cost Breakdown</h3>
-                <p className="text-gray-600">
+                <h3 className="text-xl font-semibold mb-2 text-gray-900">Detailed Cost Breakdown</h3>
+                <p className="text-gray-900">
                   Get precise estimates for rent, taxes, legal fees, and operational costs tailored to your chosen
                   German city and business type.
                 </p>
               </div>
               <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
                 <FileText className="h-10 w-10 text-emerald-600 mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Legal Compliance Checklist</h3>
-                <p className="text-gray-600">
+                <h3 className="text-xl font-semibold mb-2 text-gray-900">Legal Compliance Checklist</h3>
+                <p className="text-gray-900">
                   Never miss a requirement with our comprehensive checklist of documents, registrations, and legal steps
                   for German businesses.
                 </p>
               </div>
               <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
                 <TrendingUp className="h-10 w-10 text-emerald-600 mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Smart Recommendations</h3>
-                <p className="text-gray-600">
+                <h3 className="text-xl font-semibold mb-2 text-gray-900">Smart Recommendations</h3>
+                <p className="text-gray-900">
                   Get actionable suggestions to optimize your budget, change locations, or adjust your business scope
                   for better feasibility.
                 </p>
               </div>
               <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
                 <Users className="h-10 w-10 text-emerald-600 mb-4" />
-                <h3 className="text-xl font-semibold mb-2">First-Timer Friendly</h3>
-                <p className="text-gray-600">
+                <h3 className="text-xl font-semibold mb-2 text-gray-900">First-Timer Friendly</h3>
+                <p className="text-gray-900">
                   Designed specifically for first-time founders with clear explanations and step-by-step guidance
                   through the German startup landscape.
                 </p>
               </div>
               <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
                 <Lightbulb className="h-10 w-10 text-emerald-600 mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Real Government Data</h3>
-                <p className="text-gray-600">
+                <h3 className="text-xl font-semibold mb-2 text-gray-900">Real Government Data</h3>
+                <p className="text-gray-900">
                   All insights backed by official government sources and current financial data to ensure accuracy and
                   reliability.
                 </p>
@@ -171,7 +171,7 @@ export default function FeasiblyLanding() {
               <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
                 Simple Process
               </span>
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">
                 From Idea to Feasibility in 3 Steps
               </h2>
               <p className="max-w-[900px] text-gray-600 text-lg md:text-xl">
@@ -184,7 +184,7 @@ export default function FeasiblyLanding() {
                 <div className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100">
                   <span className="text-2xl font-bold text-emerald-600">1</span>
                 </div>
-                <h3 className="text-xl font-bold">Describe Your Idea</h3>
+                <h3 className="text-xl font-bold text-gray-900">Describe Your Idea</h3>
                 <p className="text-gray-600">
                   Tell us about your business concept, target market, and available budget. Choose your preferred German
                   city or let us suggest the best options.
@@ -194,7 +194,7 @@ export default function FeasiblyLanding() {
                 <div className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100">
                   <span className="text-2xl font-bold text-emerald-600">2</span>
                 </div>
-                <h3 className="text-xl font-bold">Get Instant Analysis</h3>
+                <h3 className="text-xl font-bold text-gray-900">Get Instant Analysis</h3>
                 <p className="text-gray-600">
                   Our AI analyzes your idea against real market data, local regulations, and cost structures to
                   determine feasibility and provide detailed insights.
@@ -204,7 +204,7 @@ export default function FeasiblyLanding() {
                 <div className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100">
                   <span className="text-2xl font-bold text-emerald-600">3</span>
                 </div>
-                <h3 className="text-xl font-bold">Take Action</h3>
+                <h3 className="text-xl font-bold text-gray-900">Take Action</h3>
                 <p className="text-gray-600">
                   Receive your feasibility report with cost breakdowns, legal checklists, and personalized
                   recommendations to move forward confidently.
@@ -215,10 +215,10 @@ export default function FeasiblyLanding() {
         </section>
 
         {/* Social Proof Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32">
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-white">
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">
                 Trusted by German Entrepreneurs
               </h2>
               <p className="max-w-[900px] text-gray-600 text-lg md:text-xl">
@@ -328,17 +328,17 @@ export default function FeasiblyLanding() {
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t bg-white">
         <div className="flex items-center space-x-2">
           <Building2 className="h-6 w-6 text-emerald-600" />
-          <span className="font-bold">Feasibly</span>
+          <span className="font-bold text-gray-900">Feasibly</span>
         </div>
-        <p className="text-xs text-gray-600 sm:ml-4">© 2024 Feasibly. Made for German entrepreneurs.</p>
+        <p className="text-xs text-gray-900 sm:ml-4">© 2024 Feasibly. Made for German entrepreneurs.</p>
         <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-          <Link href="#" className="text-xs hover:underline underline-offset-4 text-gray-600">
+          <Link href="#" className="text-xs hover:underline underline-offset-4 text-gray-900">
             Privacy Policy
           </Link>
-          <Link href="#" className="text-xs hover:underline underline-offset-4 text-gray-600">
+          <Link href="#" className="text-xs hover:underline underline-offset-4 text-gray-900">
             Terms of Service
           </Link>
-          <Link href="#" className="text-xs hover:underline underline-offset-4 text-gray-600">
+          <Link href="#" className="text-xs hover:underline underline-offset-4 text-gray-900">
             Contact
           </Link>
         </nav>
