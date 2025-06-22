@@ -3,8 +3,10 @@
 import { useState } from "react"
 import { Building2, ArrowLeft, Calculator, MapPin, Euro } from "lucide-react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 
 export default function AssessmentPage() {
+  const router = useRouter()
   const [formData, setFormData] = useState({
     businessName: "",
     businessDescription: "",
@@ -19,6 +21,8 @@ export default function AssessmentPage() {
     e.preventDefault()
     // TODO: Send data to backend API
     console.log("Form submitted:", formData)
+    // Redirect to results page
+    router.push("/results")
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
