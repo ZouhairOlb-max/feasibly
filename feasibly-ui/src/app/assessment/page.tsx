@@ -58,7 +58,7 @@ export default function AssessmentPage() {
           <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 space-y-6">
             {/* Business Name */}
             <div>
-              <label htmlFor="businessName" className="block text-sm font-medium text-gray-900 mb-2">
+              <label htmlFor="businessName" className="block text-base font-bold text-gray-900 mb-2">
                 Business Name
               </label>
               <input
@@ -67,7 +67,7 @@ export default function AssessmentPage() {
                 name="businessName"
                 value={formData.businessName}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-gray-900 placeholder-gray-600"
                 placeholder="Enter your business name"
                 required
               />
@@ -75,7 +75,7 @@ export default function AssessmentPage() {
 
             {/* Business Description */}
             <div>
-              <label htmlFor="businessDescription" className="block text-sm font-medium text-gray-900 mb-2">
+              <label htmlFor="businessDescription" className="block text-base font-bold text-gray-900 mb-2">
                 Business Description
               </label>
               <textarea
@@ -84,7 +84,7 @@ export default function AssessmentPage() {
                 value={formData.businessDescription}
                 onChange={handleInputChange}
                 rows={4}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-gray-900 placeholder-gray-600"
                 placeholder="Describe your business idea, what you plan to sell or offer, and your target customers..."
                 required
               />
@@ -92,7 +92,7 @@ export default function AssessmentPage() {
 
             {/* Budget */}
             <div>
-              <label htmlFor="budget" className="block text-sm font-medium text-gray-900 mb-2">
+              <label htmlFor="budget" className="block text-base font-bold text-gray-900 mb-2">
                 Available Budget (EUR)
               </label>
               <div className="relative">
@@ -103,7 +103,7 @@ export default function AssessmentPage() {
                   name="budget"
                   value={formData.budget}
                   onChange={handleInputChange}
-                  className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                  className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-gray-900 placeholder-gray-600"
                   placeholder="50000"
                   required
                 />
@@ -112,17 +112,17 @@ export default function AssessmentPage() {
 
             {/* City Selection */}
             <div>
-              <label htmlFor="city" className="block text-sm font-medium text-gray-900 mb-2">
+              <label htmlFor="city" className="block text-base font-bold text-gray-900 mb-2">
                 Preferred City
+                <MapPin className="inline h-4 w-4 ml-2 text-gray-400" />
               </label>
               <div className="relative">
-                <MapPin className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
                 <select
                   id="city"
                   name="city"
                   value={formData.city}
                   onChange={handleInputChange}
-                  className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-gray-900"
                   required
                 >
                   <option value="">Select a city</option>
@@ -142,7 +142,7 @@ export default function AssessmentPage() {
 
             {/* Business Type */}
             <div>
-              <label htmlFor="businessType" className="block text-sm font-medium text-gray-900 mb-2">
+              <label htmlFor="businessType" className="block text-base font-bold text-gray-900 mb-2">
                 Business Type
               </label>
               <select
@@ -150,7 +150,7 @@ export default function AssessmentPage() {
                 name="businessType"
                 value={formData.businessType}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-gray-900"
                 required
               >
                 <option value="">Select business type</option>
@@ -168,7 +168,7 @@ export default function AssessmentPage() {
 
             {/* Target Market */}
             <div>
-              <label htmlFor="targetMarket" className="block text-sm font-medium text-gray-900 mb-2">
+              <label htmlFor="targetMarket" className="block text-base font-bold text-gray-900 mb-2">
                 Target Market
               </label>
               <input
@@ -177,7 +177,7 @@ export default function AssessmentPage() {
                 name="targetMarket"
                 value={formData.targetMarket}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-gray-900 placeholder-gray-600"
                 placeholder="e.g., Young professionals, Families, Students..."
                 required
               />
@@ -185,7 +185,7 @@ export default function AssessmentPage() {
 
             {/* Team Size */}
             <div>
-              <label htmlFor="teamSize" className="block text-sm font-medium text-gray-900 mb-2">
+              <label htmlFor="teamSize" className="block text-base font-bold text-gray-900 mb-2">
                 Expected Team Size
               </label>
               <select
@@ -193,7 +193,7 @@ export default function AssessmentPage() {
                 name="teamSize"
                 value={formData.teamSize}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-gray-900"
                 required
               >
                 <option value="">Select team size</option>
