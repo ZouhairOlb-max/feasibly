@@ -4,6 +4,7 @@ from typing import List, Dict
 class CostItem(BaseModel):
     amount: int
     description: str
+    reason: str
 
 class AlternativeCity(BaseModel):
     name: str
@@ -11,13 +12,16 @@ class AlternativeCity(BaseModel):
     reason: str
 
 class AssessmentRequest(BaseModel):
-    business_name: str = Field(..., example="My Awesome Startup")
-    business_description: str = Field(..., example="A brief description of my business.")
-    budget: int = Field(..., example=50000)
-    city: str = Field(..., example="Berlin")
-    business_type: str = Field(..., example="Tech")
-    target_market: str = Field(..., example="Young professionals")
-    team_size: str = Field(..., example="2-5")
+    business_name: str = Field(alias="businessName")
+    business_description: str = Field(alias="businessDescription")
+    budget: float
+    city: str
+    business_type: str = Field(alias="businessType")
+    target_market: str = Field(alias="targetMarket")
+    team_size: str = Field(alias="teamSize")
+
+    class Config:
+        allow_population_by_field_name = True
 
 class AssessmentResponse(BaseModel):
     business_name: str

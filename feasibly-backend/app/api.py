@@ -27,13 +27,13 @@ def analyze_business(request: AssessmentRequest):
         "total_cost": 85000,
         "monthly_costs": 3200,
         "cost_breakdown": {
-            "rent": {"amount": 2500, "description": f"Office space in {request.city} Mitte"},
-            "legal": {"amount": 5000, "description": "Business registration and legal fees"},
-            "licenses": {"amount": 2000, "description": "Required business licenses"},
-            "insurance": {"amount": 1500, "description": "Business liability insurance"},
-            "equipment": {"amount": 15000, "description": "Computers, furniture, and office supplies"},
-            "marketing": {"amount": 5000, "description": "Initial marketing and branding"},
-            "contingency": {"amount": 35000, "description": "Emergency fund and unexpected costs"}
+            "rent": {"amount": 2500, "description": f"Office space in {request.city} Mitte", "reason": "Average rent for city center"},
+            "legal": {"amount": 5000, "description": "Business registration and legal fees", "reason": "Standard legal fees for new businesses"},
+            "licenses": {"amount": 2000, "description": "Required business licenses", "reason": "Mandatory licenses for operation"},
+            "insurance": {"amount": 1500, "description": "Business liability insurance", "reason": "Recommended for all businesses"},
+            "equipment": {"amount": 15000, "description": "Computers, furniture, and office supplies", "reason": "Initial setup and equipment purchase"},
+            "marketing": {"amount": 5000, "description": "Initial marketing and branding", "reason": "To attract first customers"},
+            "contingency": {"amount": 35000, "description": "Emergency fund and unexpected costs", "reason": "Buffer for unforeseen expenses"}
         },
         "required_documents": [
             "Business registration form (Gewerbeanmeldung)",

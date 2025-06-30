@@ -4,9 +4,13 @@ import { useState } from "react"
 import { Building2, ArrowLeft, Calculator, MapPin, Euro } from "lucide-react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
+import { useAssessment } from "@/context/AssessmentContext"
 
 export default function AssessmentPage() {
   const router = useRouter()
+  const { setAssessmentResult } = useAssessment()
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [error, setError] = useState<string | null>(null)
   const [formData, setFormData] = useState({
     businessName: "",
     businessDescription: "",
@@ -17,12 +21,32 @@ export default function AssessmentPage() {
     teamSize: ""
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // TODO: Send data to backend API
-    console.log("Form submitted:", formData)
-    // Redirect to results page
-    router.push("/results")
+    setIsSubmitting(true)
+    setError(null)
+
+    try {
+      const response = await fetch("http://localhost:8000/api/analyze", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (!response.ok) {
+        throw new Error("Failed to analyze business feasibility")
+      }
+
+      const result = await response.json()
+      setAssessmentResult(result)
+      router.push("/results")
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -213,12 +237,20 @@ export default function AssessmentPage() {
             <div className="pt-4">
               <button
                 type="submit"
-                className="w-full flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-emerald-600 rounded-lg hover:bg-emerald-700 transition-colors"
+                disabled={isSubmitting}
+                className="w-full flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-emerald-600 rounded-lg hover:bg-emerald-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Calculator className="mr-2 h-5 w-5" />
-                Analyze Feasibility
+                {isSubmitting ? "Analyzing..." : "Analyze Feasibility"}
               </button>
             </div>
+
+            {/* Error Message */}
+            {error && (
+              <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-md">
+                <p className="text-sm text-red-600">{error}</p>
+              </div>
+            )}
           </form>
 
           {/* Info Box */}

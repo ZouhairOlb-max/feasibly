@@ -1,50 +1,32 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Building2, ArrowLeft, CheckCircle, AlertCircle, TrendingUp, FileText, MapPin, Euro, Download, Share2 } from "lucide-react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
+import { useAssessment } from "@/context/AssessmentContext"
 
 export default function ResultsPage() {
+  const router = useRouter()
+  const { assessmentResult } = useAssessment()
   const [expandedSection, setExpandedSection] = useState<string | null>(null)
 
-  // Mock data - this would come from your backend API
-  const results = {
-    businessName: "TechStart Solutions",
-    city: "Berlin",
-    feasibilityScore: 78,
-    status: "feasible",
-    totalCost: 85000,
-    monthlyCosts: 3200,
-    costBreakdown: {
-      rent: { amount: 2500, description: "Office space in Berlin Mitte" },
-      legal: { amount: 5000, description: "Business registration and legal fees" },
-      licenses: { amount: 2000, description: "Required business licenses" },
-      insurance: { amount: 1500, description: "Business liability insurance" },
-      equipment: { amount: 15000, description: "Computers, furniture, and office supplies" },
-      marketing: { amount: 5000, description: "Initial marketing and branding" },
-      contingency: { amount: 35000, description: "Emergency fund and unexpected costs" }
-    },
-    requiredDocuments: [
-      "Business registration form (Gewerbeanmeldung)",
-      "Tax registration (Steuernummer)",
-      "VAT registration (Umsatzsteuer-ID)",
-      "Commercial register entry (Handelsregister)",
-      "Professional liability insurance certificate",
-      "Lease agreement for office space",
-      "Bank account for business",
-      "Health insurance for employees"
-    ],
-    recommendations: [
-      "Consider starting with a smaller office space to reduce initial costs",
-      "Look into government grants for tech startups in Berlin",
-      "Network with local startup communities for cost-saving opportunities",
-      "Consider co-working spaces as a more affordable alternative"
-    ],
-    alternativeCities: [
-      { name: "Leipzig", score: 85, reason: "Lower costs, growing tech scene" },
-      { name: "Hamburg", score: 72, reason: "Good infrastructure, moderate costs" },
-      { name: "Dortmund", score: 88, reason: "Very affordable, strong support programs" }
-    ]
+  // Redirect to assessment page if there's no result
+  useEffect(() => {
+    if (!assessmentResult) {
+      router.push("/assessment")
+    }
+  }, [assessmentResult, router])
+
+  // Show loading state while checking for results
+  if (!assessmentResult) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="text-center">
+          <p className="text-gray-600">Loading results...</p>
+        </div>
+      </div>
+    )
   }
 
   const getStatusColor = (status: string) => {
@@ -93,18 +75,18 @@ export default function ResultsPage() {
             <div className="flex items-center justify-between mb-4">
               <div>
                 <h1 className="text-2xl font-bold text-gray-900 mb-2">
-                  Feasibility Analysis: {results.businessName}
+                  Feasibility Analysis: {assessmentResult.business_name}
                 </h1>
                 <p className="text-gray-900 flex items-center">
                   <MapPin className="h-4 w-4 mr-2" />
-                  {results.city}, Germany
+                  {assessmentResult.city}, Germany
                 </p>
               </div>
               <div className="text-right">
-                <div className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(results.status)}`}>
-                  {results.status === "feasible" && <CheckCircle className="h-4 w-4 mr-2" />}
-                  {results.status === "marginal" && <AlertCircle className="h-4 w-4 mr-2" />}
-                  {results.status.charAt(0).toUpperCase() + results.status.slice(1)}
+                <div className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(assessmentResult.status)}`}>
+                  {assessmentResult.status === "feasible" && <CheckCircle className="h-4 w-4 mr-2" />}
+                  {assessmentResult.status === "marginal" && <AlertCircle className="h-4 w-4 mr-2" />}
+                  {assessmentResult.status.charAt(0).toUpperCase() + assessmentResult.status.slice(1)}
                 </div>
               </div>
             </div>
@@ -112,8 +94,8 @@ export default function ResultsPage() {
             {/* Feasibility Score */}
             <div className="text-center py-6 border-t border-gray-200">
               <div className="text-4xl font-bold mb-2">
-                <span className={getScoreColor(results.feasibilityScore)}>
-                  {results.feasibilityScore}%
+                <span className={getScoreColor(assessmentResult.feasibility_score)}>
+                  {assessmentResult.feasibility_score}%
                 </span>
               </div>
               <p className="text-gray-900 font-medium">Feasibility Score</p>
@@ -129,16 +111,16 @@ export default function ResultsPage() {
             <div className="grid md:grid-cols-2 gap-4 mb-4">
               <div className="bg-gray-50 p-4 rounded-lg">
                 <p className="text-sm text-gray-600">Total Initial Investment</p>
-                <p className="text-2xl font-bold text-gray-900">€{results.totalCost.toLocaleString()}</p>
+                <p className="text-2xl font-bold text-gray-900">€{assessmentResult.total_cost.toLocaleString()}</p>
               </div>
               <div className="bg-gray-50 p-4 rounded-lg">
                 <p className="text-sm text-gray-600">Monthly Operating Costs</p>
-                <p className="text-2xl font-bold text-gray-900">€{results.monthlyCosts.toLocaleString()}</p>
+                <p className="text-2xl font-bold text-gray-900">€{assessmentResult.monthly_costs.toLocaleString()}</p>
               </div>
             </div>
             
             <div className="space-y-3">
-              {Object.entries(results.costBreakdown).map(([key, cost]) => (
+              {Object.entries(assessmentResult.cost_breakdown).map(([key, cost]) => (
                 <div key={key} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-b-0">
                   <div>
                     <p className="font-medium text-gray-900 capitalize">{key}</p>
@@ -157,7 +139,7 @@ export default function ResultsPage() {
               Required Documents & Registrations
             </h2>
             <div className="grid md:grid-cols-2 gap-3">
-              {results.requiredDocuments.map((doc, index) => (
+              {assessmentResult.required_documents.map((doc, index) => (
                 <div key={index} className="flex items-start">
                   <CheckCircle className="h-5 w-5 text-emerald-600 mr-3 mt-0.5 flex-shrink-0" />
                   <span className="text-gray-900">{doc}</span>
@@ -173,7 +155,7 @@ export default function ResultsPage() {
               Recommendations
             </h2>
             <div className="space-y-3">
-              {results.recommendations.map((rec, index) => (
+              {assessmentResult.recommendations.map((rec, index) => (
                 <div key={index} className="flex items-start">
                   <div className="h-2 w-2 bg-emerald-600 rounded-full mr-3 mt-2 flex-shrink-0" />
                   <span className="text-gray-900">{rec}</span>
@@ -186,7 +168,7 @@ export default function ResultsPage() {
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
             <h2 className="text-xl font-bold text-gray-900 mb-4">Alternative Cities to Consider</h2>
             <div className="grid md:grid-cols-3 gap-4">
-              {results.alternativeCities.map((city, index) => (
+              {assessmentResult.alternative_cities.map((city, index) => (
                 <div key={index} className="border border-gray-200 rounded-lg p-4">
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="font-bold text-gray-900">{city.name}</h3>
