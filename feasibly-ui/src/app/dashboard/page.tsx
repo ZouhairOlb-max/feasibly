@@ -6,60 +6,47 @@ import { Building2, TrendingUp, DollarSign, PieChart, BarChart3, LineChart, Targ
 export default function Dashboard() {
   const businessDepartments = [
     {
-      id: "revenue",
-      title: "Projected Revenue",
-      value: "$650,000",
+      id: "financial-overview",
+      title: "Financial Overview",
+      value: "$45K Cash",
       icon: DollarSign,
-      description: "Revenue tracking and projections",
+      description: "Cash flow, P&L, break-even analysis",
       color: "emerald",
+      href: "/dashboard/financial"
+    },
+    {
+      id: "revenue-analytics",
+      title: "Revenue Analytics",
+      value: "$650K",
+      icon: TrendingUp,
+      description: "Revenue tracking, sources, and projections",
+      color: "blue",
       href: "/dashboard/revenue"
     },
     {
-      id: "revenue-breakdown",
-      title: "Revenue Breakdown",
-      icon: PieChart,
-      description: "Revenue sources and distribution",
-      color: "blue",
-      href: "/dashboard/revenue-breakdown"
-    },
-    {
-      id: "operating-costs",
-      title: "Operating Costs",
+      id: "cost-management",
+      title: "Cost Management",
       value: "25%",
-      icon: TrendingUp,
-      description: "Cost management and analysis",
+      icon: BarChart3,
+      description: "Operating costs and cost optimization",
       color: "emerald",
       href: "/dashboard/costs"
     },
     {
-      id: "cost-analysis",
-      title: "Cost Analysis",
-      icon: BarChart3,
-      description: "Cost correlation and trends",
+      id: "customer-insights",
+      title: "Customer Insights",
+      value: "2.3x CLV",
+      icon: Users,
+      description: "CAC, CLV, retention, and sales pipeline",
       color: "blue",
-      href: "/dashboard/cost-analysis"
+      href: "/dashboard/customers"
     },
     {
-      id: "revenue-expenses",
-      title: "Revenue & Expenses",
-      icon: LineChart,
-      description: "Financial performance tracking",
-      color: "emerald",
-      href: "/dashboard/revenue-expenses"
-    },
-    {
-      id: "profit-margin",
-      title: "Profit Margin",
-      icon: BarChart3,
-      description: "Profitability analysis",
-      color: "blue",
-      href: "/dashboard/profit"
-    },
-    {
-      id: "market-demand",
-      title: "Market Demand",
+      id: "market-analysis",
+      title: "Market Analysis",
+      value: "75%",
       icon: Target,
-      description: "Market analysis and demand",
+      description: "Market demand, competition, and share",
       color: "emerald",
       href: "/dashboard/market"
     },
@@ -67,10 +54,19 @@ export default function Dashboard() {
       id: "operations",
       title: "Operations",
       value: "87%",
-      icon: Users,
-      description: "Team performance and operations",
+      icon: PieChart,
+      description: "KPIs, productivity, and efficiency metrics",
       color: "blue",
       href: "/dashboard/operations"
+    },
+    {
+      id: "goals-planning",
+      title: "Goals & Planning",
+      value: "85%",
+      icon: LineChart,
+      description: "Target tracking, scenarios, and ROI analysis",
+      color: "emerald",
+      href: "/dashboard/goals"
     }
   ]
 
