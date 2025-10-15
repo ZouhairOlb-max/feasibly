@@ -57,8 +57,8 @@ export default function FeasiblyLanding() {
                   </p>
                 </div>
                 <div className="flex flex-col gap-3 sm:flex-row">
-                  <Link href="/assessment" className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-emerald-600 rounded-lg hover:bg-emerald-700 transition-colors">
-                    Start Your Assessment
+                  <Link href="/dashboard" className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-emerald-600 rounded-lg hover:bg-emerald-700 transition-colors">
+                    Open Dashboard
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                   <button className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
